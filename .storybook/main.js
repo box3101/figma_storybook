@@ -13,6 +13,6 @@ const config = {
     name: "@storybook/react-webpack5",
     options: {},
   },
-  staticDirs: ["..\\public"],
+  staticDirs: ['../public'],  // 이 부분을 변경했습니다
 };
 export default config;
