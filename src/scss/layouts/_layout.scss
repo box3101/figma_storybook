@@ -1,0 +1,284 @@
+.admin-body-container {
+	display: flex;
+	height: 100vh;
+	overflow: hidden;
+	padding: px-to-rem(20px);
+	padding-top: 0;
+	padding-right: px-to-rem(0px);
+	background: var(--bg-container);
+	color: var(--text-color);
+
+	@include max-width(tab) {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+
+.admin-sidebar {
+	margin-top: px-to-rem(20px);
+	display: flex;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-radius: 18px var(--Border-Radius-borderRadiusXXL, 36px) var(--Border-Radius-borderRadiusXXL, 36px) 17px;
+	background: var(--sidebar-sub-bg);
+	/* boxShadow */
+	box-shadow:
+		0px 1px 2px 0px rgba(0, 0, 0, 0.03),
+		0px 1px 6px -1px rgba(0, 0, 0, 0.02),
+		0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+
+	@include max-width(tab) {
+		width: 0;
+	}
+
+	.admin-sidebar-left-menu {
+		width: px-to-rem(80px);
+		background: var(--sidebar-bg);
+		border-radius: var(--Border-Radius-borderRadiusXL, 16px);
+		/* boxShadowSecondary */
+		box-shadow:
+			0px 6px 16px 0px rgba(0, 0, 0, 0.08),
+			0px 3px 6px -4px rgba(0, 0, 0, 0.12),
+			0px 9px 28px 8px rgba(0, 0, 0, 0.05);
+		display: flex;
+		flex-direction: column;
+
+		.admin-sidebar-top {
+			flex-grow: 1; /* 남는 공간을 차지하도록 설정 */
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start; /* 위쪽 정렬 */
+			padding: px-to-rem(20px);
+
+			.square-button {
+				width: px-to-rem(40px);
+				height: px-to-rem(40px);
+				background-color: var(--content-bg);
+				margin-bottom: px-to-rem(20px);
+			}
+
+			.nav-buttons {
+				display: flex;
+				flex-direction: column;
+				gap: px-to-rem(10px);
+
+				.nav-button {
+					width: px-to-rem(40px);
+					height: px-to-rem(40px);
+					border-radius: 50%;
+					border: none;
+					background-color: var(--sidebar-button-bg);
+				}
+			}
+		}
+
+		.admin-sidebar-bottom {
+			padding: px-to-rem(20px);
+
+			.profile-icon {
+				width: px-to-rem(40px);
+				height: px-to-rem(40px);
+				border-radius: 50%;
+				background-color: var(--sidebar-button-bg);
+			}
+		}
+	}
+
+	.admin-sidebar-content {
+		width: px-to-rem(250px); // 고정 너비 설정
+		background: var(--content-bg);
+		flex-shrink: 0; // 크기 고정
+		display: flex;
+		flex-direction: column;
+
+		.main-nav {
+			padding-top: px-to-rem(45px);
+			.first {
+				display: block;
+				margin-bottom: px-to-rem(40px);
+				pointer-events: none;
+			}
+
+			ul.submenu {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+
+				> li {
+					> a {
+						display: flex;
+						align-items: center;
+						padding: 0 px-to-rem(24px);
+						height: px-to-rem(48px);
+						color: var(--text-color);
+						transition:
+							background-color 0.3s,
+							color 0.3s;
+
+						&:hover {
+							background-color: var(--sidebar-button-bg);
+
+							color: #fff;
+						}
+					}
+
+					.sub-submenu {
+						padding-left: px-to-rem(15px);
+
+						li a {
+							display: flex;
+							align-items: center;
+							height: px-to-rem(40px);
+							padding-left: px-to-rem(24px);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+       Content
+       ========================================================================== */
+.admin-content-wrapper {
+	flex: 1;
+	padding: px-to-rem(60px);
+	padding-top: px-to-rem(30px);
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+	background-color: var(--content-bg);
+	color: var(--text-color);
+	flex-direction: column;
+	display: flex;
+
+	@include max-width(tab) {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+.admin-main-content {
+	flex: 1;
+}
+/* ==========================================================================
+     Flex
+     ========================================================================== */
+.flex {
+	display: flex !important;
+	&.aib {
+		align-items: baseline;
+	}
+	&.aic {
+		align-items: center;
+	}
+	&.jcc {
+		justify-content: center;
+	}
+	&.jcb {
+		justify-content: space-between;
+	}
+	.flex-1 {
+		flex: 1;
+	}
+	.w-full {
+		width: 100%;
+	}
+}
+/* ==========================================================================
+     GAP
+     ========================================================================== */
+@for $i from 1 through 100 {
+	.gap#{$i} {
+		gap: px-to-rem($i * 1px);
+	}
+}
+
+.sbdocs-wrapper,
+.sb-show-main {
+	overflow-y: scroll;
+}
+
+/* ==========================================================================
+     header-toolbar
+     ========================================================================== */
+.header-toolbar {
+	margin-top: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #000;
+}
+
+/* ==========================================================================
+     content-area
+     ========================================================================== */
+.content-area {
+	height: 100%;
+	padding: px-to-rem(20px);
+	box-sizing: border-box;
+	.cont-top {
+		margin-left: px-to-rem(-20px);
+		margin-right: px-to-rem(-20px);
+	}
+}
+
+/* ==========================================================================
+     empty-content
+     ========================================================================== */
+.empty-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	font-size: 20px;
+	color: #000;
+}
+/* ==========================================================================
+   width
+   ========================================================================== */
+.w100 {
+	width: 100%;
+}
+
+/* ==========================================================================
+   margin
+   ========================================================================== */
+
+@for $i from 1 through 100 {
+	.mt#{$i} {
+		margin-top: px-to-rem($i * 1px);
+	}
+	.mb#{$i} {
+		margin-bottom: px-to-rem($i * 1px);
+	}
+	.ml#{$i} {
+		margin-left: px-to-rem($i * 1px);
+	}
+	.mr#{$i} {
+		margin-right: px-to-rem($i * 1px);
+	}
+	.m#{$i} {
+		margin: px-to-rem($i * 1px);
+	}
+}
+
+/* ==========================================================================
+    padding
+   ========================================================================== */
+@for $i from 1 through 100 {
+	.pt#{$i} {
+		padding-top: px-to-rem($i * 1px);
+	}
+	.pb#{$i} {
+		padding-bottom: px-to-rem($i * 1px);
+	}
+	.pl#{$i} {
+		padding-left: px-to-rem($i * 1px);
+	}
+	.pr#{$i} {
+		padding-right: px-to-rem($i * 1px);
+	}
+	.p#{$i} {
+		padding: px-to-rem($i * 1px);
+	}
+}

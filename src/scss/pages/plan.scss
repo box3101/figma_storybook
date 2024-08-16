@@ -1,0 +1,203 @@
+.task-cards {
+	margin-top: 20px;
+	.okr-card {
+		border: 1px solid #000;
+		padding: 10px 20px;
+		margin-bottom: 20px;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		&__header {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			border-bottom: 1px solid #aaa;
+			padding-bottom: px-to-rem(15px);
+
+			&-left,
+			&-right {
+				display: flex;
+				align-items: center;
+			}
+
+			&-left {
+				flex: none;
+			}
+
+			&-right {
+				width: 100%;
+				justify-content: space-between;
+				> div {
+					width: 33.333%;
+				}
+				.okr-card__comments-info {
+					width: auto;
+				}
+			}
+		}
+
+		&__status {
+			display: inline-block;
+			padding: 5px 10px;
+			background: red;
+			border: 1px solid #000;
+			margin-right: 15px;
+			min-width: 60px;
+			text-align: center;
+
+			&-wrapper,
+			&-secondary {
+				flex: none;
+			}
+		}
+
+		&__label {
+			flex: none;
+			display: inline-block;
+			padding: 5px 10px;
+			background: #fff;
+			border: 1px solid #000;
+			width: 80px;
+			text-align: center;
+		}
+
+		&__label-secondary {
+			flex: none;
+			display: inline-block;
+			padding: 5px 10px;
+			background: #fff;
+			border: 1px solid #000;
+			width: auto;
+			text-align: center;
+		}
+
+		&__creation-info,
+		&__review-info,
+		&__agreement-info,
+		&__comments-info {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		&__creator,
+		&__agreement-details {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			flex: none;
+			min-width: 200px;
+			span {
+				font-size: px-to-rem(13px);
+			}
+		}
+
+		&__body {
+			padding: 20px 0;
+			display: flex;
+			align-items: flex-start;
+
+			&.second {
+				border: 1px solid #000;
+				padding: 10px;
+			}
+		}
+
+		&__content {
+			width: 100%;
+		}
+
+		&__objective {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			background: #eee;
+
+			&-header {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+		}
+
+		&__key-results {
+			margin-top: 20px;
+		}
+
+		&__key-result-item {
+			margin-bottom: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 10px;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+
+		&__key-result-info {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		&__key-result-dates {
+			flex: none;
+		}
+
+		&__actions {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+		}
+	}
+}
+
+/* ==========================================================================
+	 수립방식선택
+	 ========================================================================== */
+.goal-setup-container {
+	.goal-setup-intro {
+		margin-top: px-to-rem(10px);
+		font-size: 20px;
+	}
+	.goal-setup-options {
+		max-width: 80%;
+		margin: 0 auto;
+		padding-top: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 50px;
+		.goal-setup-option {
+			border: 1px solid #000;
+			padding: 20px 50px;
+			min-height: 300px;
+			display: flex;
+			align-items: center;
+			.goal-setup-link {
+				.goal-setup-title {
+					text-align: center;
+					font-size: 20px;
+				}
+
+				.goal-setup-description {
+					margin-top: 50px;
+					font-size: 16px;
+				}
+
+				.goal-setup-time {
+					margin-top: 30px;
+					font-size: 13px;
+				}
+
+				.ant-select {
+					text-align: left;
+				}
+			}
+		}
+	}
+}

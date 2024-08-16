@@ -1,6 +1,7 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
 import styled, { ThemeProvider } from 'styled-components';
+import '../src/scss/ui.scss';
 
 const StyledWrapper = styled.div`
   .ant-input-status-success {

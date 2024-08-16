@@ -13,6 +13,10 @@ export default {
   title: "Ant Design/Input",
   component: Input,
   argTypes: {
+    width : {
+      options: ["large", "middle", "small"],
+      control: { type: "radio" },
+    },
     size: {
       options: ["large", "middle", "small"],
       control: { type: "radio" },

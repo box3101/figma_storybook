@@ -1,0 +1,190 @@
+/* ==========================================================================
+    1. Profile
+   ========================================================================== */
+.profile-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: px-to-rem(10px);
+  .left {
+    display: flex;
+    align-items: center;
+    span {
+      color: var(--text-color);
+      font-size: 0.9375rem;
+      display: block;
+      line-height: normal;
+    }
+    .profile-image {
+      display: inline-block;
+      width: px-to-rem(24px);
+      height: px-to-rem(24px);
+      border-radius: 50%; /* 이미지를 둥글게 만듦 */
+      background-size: cover; /* 배경 이미지가 요소를 완전히 덮도록 함 */
+      background-position: center; /* 배경 이미지의 중심을 요소의 중심에 맞춤 */
+      background: var(--Colors-Base-Magenta-5, #f759ab);
+      margin-right: 8px; /* 텍스트와 이미지 사이의 간격 */
+      display: inline-block; /* 인라인 블록으로 설정하여 텍스트와 나란히 배치 */
+    }
+    .profile-name {
+      font-weight: 700;
+      position: relative;
+      top: 1px;
+    }
+  }
+  .department {
+    position: relative;
+    font-size: px-to-rem(14px);
+    color: var(--text-secondary);
+    line-height: normal;
+    top: px-to-rem(0.5px);
+  }
+}
+
+/* ==========================================================================
+   2. input-container
+   ========================================================================== */
+
+.input-container {
+  .row {
+    margin-bottom: px-to-rem(16px);
+    &:last-of-type {
+      margin-bottom: px-to-rem(0px);
+    }
+    .member-num {
+      margin-top: px-to-rem(15px);
+      font-size: px-to-rem(16px);
+      font-weight: 400;
+      color: var(--text-color);
+      span {
+        display: inline-block;
+        font-size: px-to-rem(16px);
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+    }
+    dl {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: px-to-rem(16px);
+      dt {
+        width: px-to-rem(80px);
+        font-size: px-to-rem(16px);
+      }
+      dd {
+        flex: 1;
+        .ant-select {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.task-content {
+  margin-top: px-to-rem(24px);
+  height: 55vh;
+}
+.task-input-container {
+  border-radius: var(--Border-Radius-borderRadius, 6px);
+  border: 1px dashed var(--primary-color);
+  background: var(--bg-color);
+  box-shadow:
+    0px 1px 2px 0px rgba(0, 0, 0, 0.03),
+    0px 1px 6px -1px rgba(0, 0, 0, 0.02),
+    0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+  .task-btn {
+    display: flex;
+    padding-top: px-to-rem(24px);
+    padding-bottom: px-to-rem(24px);
+    height: auto;
+    width: 100%;
+  }
+}
+.all-num {
+  font-size: px-to-rem(20px);
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1;
+  margin-bottom: px-to-rem(24px);
+
+  span {
+    font-size: px-to-rem(20px);
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+}
+
+/* ==========================================================================
+   Empty
+   ========================================================================== */
+.empty-wrap {
+  margin-top: px-to-rem(20px);
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  .empty-state {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: px-to-rem(7px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: px-to-rem(14px);
+    font-weight: 400;
+    color: var(--text-color);
+  }
+}
+
+/* ==========================================================================
+    Team Members
+   ========================================================================== */
+.team-members {
+  // width: px-to-rem(150px);
+  font-size: px-to-rem(14px);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--text-secondary);
+  cursor: pointer;
+
+  span {
+    display: inline-block;
+    font-size: px-to-rem(14px);
+    margin-left: px-to-rem(3px);
+    color: var(--text-color);
+    font-weight: 600;
+  }
+}
+
+/* ==========================================================================
+   none-event
+   ========================================================================== */
+.none-event {
+  cursor: default;
+}
+
+/* ==========================================================================
+   ellipsis
+   ========================================================================== */
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+}
+
+/* ==========================================================================
+   no-copy
+   ========================================================================== */
+.no-copy {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

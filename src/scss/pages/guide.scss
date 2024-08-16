@@ -1,0 +1,189 @@
+$colors: (
+  primary: #3498db,
+  secondary: #2c3e50,
+  tertiary: #34495e,
+  quaternary: #2980b9,
+  text: #333,
+  light-text: #7f8c8d,
+  background: #f8f9fa,
+  white: #fff,
+  checkbox-bg: #e0e0e0,
+  checkbox-checked: #3498db,
+);
+
+$font-sizes: (
+  xl: 2rem,
+  lg: 1.5rem,
+  md: 1.2rem,
+  sm: 1rem,
+  xs: 0.9rem,
+);
+
+$spacing: (
+  xxs: 0.25rem,
+  xs: 0.5rem,
+  sm: 0.35rem,
+  md: 1rem,
+  lg: 1.5rem,
+  xl: 2rem,
+);
+
+@mixin box-shadow($opacity: 0.1) {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, $opacity);
+}
+
+.guide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: map-get($spacing, md);
+  font-family: Arial, sans-serif;
+  color: map-get($colors, text);
+  line-height: 1.4;
+
+  &__title {
+    font-size: map-get($font-sizes, xl);
+    margin-bottom: map-get($spacing, lg);
+    text-align: center;
+    color: map-get($colors, secondary);
+  }
+
+  &__content {
+    background-color: map-get($colors, background);
+    border-radius: 8px;
+    padding: map-get($spacing, lg);
+    @include box-shadow;
+  }
+
+  &__section {
+    margin-bottom: map-get($spacing, lg);
+
+    &-title {
+      font-size: map-get($font-sizes, lg);
+      margin-bottom: map-get($spacing, md);
+      color: map-get($colors, tertiary);
+      border-bottom: 1px solid map-get($colors, primary);
+      padding-bottom: map-get($spacing, xxs);
+    }
+  }
+
+  &__subsection {
+    margin-bottom: map-get($spacing, md);
+
+    &-title {
+      font-size: map-get($font-sizes, md);
+      margin-bottom: map-get($spacing, sm);
+      color: map-get($colors, quaternary);
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: map-get($spacing, sm);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: map-get($spacing, sm);
+    background-color: map-get($colors, white);
+    border-radius: 4px;
+    padding: map-get($spacing, sm);
+    @include box-shadow;
+    &--completed {
+      .guide__description {
+        text-decoration: line-through;
+        text-decoration-style: dashed;
+        text-decoration-color: map-get($colors, primary);
+        color: lighten(map-get($colors, light-text), 20%);
+      }
+    }
+    &--request {
+      align-items: flex-start;
+    }
+  }
+
+  &__item-content {
+    flex-grow: 1;
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: map-get($font-sizes, sm);
+    color: map-get($colors, primary);
+    text-decoration: none;
+    margin-bottom: map-get($spacing, xxs);
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: map-get($colors, quaternary);
+      text-decoration: underline;
+    }
+  }
+
+  &__description {
+    font-size: map-get($font-sizes, xs);
+    color: map-get($colors, light-text);
+    margin-bottom: map-get($spacing, xxs);
+  }
+
+  &__check-date {
+    font-size: map-get($font-sizes, xs);
+    color: map-get($colors, primary);
+    margin-top: map-get($spacing, xxs);
+  }
+
+  &__checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 10px;
+  }
+
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked + .guide__checkbox-custom {
+      background-color: map-get($colors, checkbox-checked);
+      border-color: map-get($colors, checkbox-checked);
+
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    &:focus + .guide__checkbox-custom {
+      box-shadow: 0 0 0 3px rgba(map-get($colors, checkbox-checked), 0.3);
+    }
+  }
+
+  &__checkbox-custom {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    background-color: map-get($colors, white);
+    border: 2px solid map-get($colors, checkbox-bg);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 2px;
+      width: 6px;
+      height: 11px;
+      border: solid map-get($colors, white);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+  }
+}
